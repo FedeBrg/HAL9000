@@ -1,0 +1,25 @@
+button
+{
+  background-image:url("./images/timer-removebg.png");
+  background-repeat:no-repeat;
+  background-size:85%;
+  background-position:center;
+  background-color:white;
+  font-family: Verdana;
+  height: 180px;
+  width: 180px;
+  border-radius:70%;
+  border-color: grey;
+  border-style: groove;
+  text-align:center;
+}
+
+button:hover
+{
+  background-color: #e6faff;
+}
+
+button:active
+{
+  box-shadow: inset 0 0 4em #FFFFFF;
+}
