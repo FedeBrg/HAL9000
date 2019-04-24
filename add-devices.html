@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Add a new Device</title>
+</head>
+<body>
+	<h1>Enter device information</h1>
+	<form>
+		<div>
+			Description: <input type="text" name="deviceDescription"><br>
+		</div>
+		<div>
+		Select device type: <select>
+								<option>Device1</option>
+								<option>Device2</option>
+								<option>Device3</option>
+							</select>	
+		</div>
+		<div>
+			<input type="checkbox" name="linkedToRoom" value="false"> Attach to a Room	
+		</div>
+		
+		<p>Si el boton esta checkeado aparece esto</p>
+
+		<div>
+			<select>
+				<option>Room1</option>
+				<option>Room2</option>
+				<option>Room3</option>
+			</select>	
+		</div>
+		
+		<div>
+			<input type="submit" value="Submit">
+			<button type="button" name="cancelButton" class="cancelBtn">Cancel</button>
+		</div>
+		
+	</form>
+</body>
+</html>
