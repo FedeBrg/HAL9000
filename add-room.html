@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Add a new Room</title>
+</head>
+<body>
+	<h1>Enter room information</h1>
+	<form>
+		<div>
+			Name: <input type="text" name="roomDescription"><br>
+		</div>
+		<div>
+		Select room icon: <select>
+								<option>RoomIcon1</option>
+								<option>RoomIcon2</option>
+								<option>RoomIcon3</option>
+							</select>	
+		</div>
+		<div>
+			<input type="checkbox" name="linkedToRoom" value="false"> Add Devices, despues sera un toggle	
+		</div>
+		
+		<h1></h1>
+
+		<div>
+			<button type="button" name="addANewDeviceButton" class="addANewDeviceBtn">Add a new Device</button>
+			<button type="button" name="addExistingDeviceButton" class="addExistingDeviceBtn">Add an existing Device</button>
+		</div>
+		<h1></h1>
+		<div>
+			<input type="submit" value="Submit">
+			<button type="button" name="cancelButton" class="cancelBtn">Cancel</button>
+		</div>
+		
+	</form>
+</body>
+</html>
