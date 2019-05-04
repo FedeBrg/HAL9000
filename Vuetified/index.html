@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app id="inspire">
+    <!-- TOOLBAR -->
+     <v-toolbar color="black">
+      <img src="HAL9000.png" alt="logo" height="50" width="50">
+      <v-toolbar-title class="white--text">HAL9000 Smart House</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-text-field class="ml-2" outline="true" loading="true" v-model="search" label="Search..." append-icon="clear" :append-icon-cb="() => (openSearch = !openSearch)"  dark background-color="white" prepend-icon="search" ></v-text-field>
+        <v-btn>
+          <v-icon color="#FFFFFF" size="32">perm_identity</v-icon>
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-divider></v-divider>
+
+    <!-- LO DE LA IZQUIERDA Y NO ES DEL CAÑO -->
+    <div>
+    <v-navigation-drawer permanent>
+      <v-toolbar flat>
+        <v-list>
+          <v-list-tile>
+            <v-list-tile-title class="title">
+              Navigation Bar
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+    
+      <v-divider></v-divider>
+    
+      <v-list dense class="pt-0">
+        <v-list-tile
+          v-for="item in items"
+          :key="item.title"
+          @click=""
+        >
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+  
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    </div>
+  </v-app>
+  </div>
+
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+    el: '#app',
+    data () {
+      return {
+        items: [
+          { title: 'Home', icon: 'house' },
+          { title: 'Rooms', icon: 'group_work' },
+          { title: 'Devices', icon: 'perm_device_information' },
+          { title: 'Routines', icon: 'alarm' },
+          { title: 'Active devices', icon: 'highlight' },
+          { title: 'Alarm', icon: 'settings_remote' },
+          { title: 'Timer', icon: 'alarm_add' },
+        ],
+        right: null
+        }
+      }
+    })
+  </script>
+</body>
+</html>
