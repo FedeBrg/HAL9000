@@ -3,6 +3,7 @@
   <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <!-- REUSAMOS AL SER EL MISMO CSS -->
   <link href="css/rooms.css" rel="stylesheet" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
@@ -17,7 +18,7 @@
       <v-toolbar-title class="white--text">HAL9000</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-       <v-text-field prepend-icon="search" v-model="search" label="Search..." hide-details dark single-line></v-text-field>
+        <v-text-field prepend-icon="search" v-model="search" label="Search..." hide-details dark single-line></v-text-field>
         <v-btn fab flat>
           <v-icon color="#FFFFFF" size="30">perm_identity</v-icon>
         </v-btn>
@@ -71,21 +72,21 @@
     <v-content>
       <v-container fluid>
         <v-layout wrap>
-          <v-flex xs4 mt-1 mr-3>
+          <v-flex xs3 mt-1 mr-2>
             <v-card hover>
-              <img src="./rsc/rooms/Office.png" class="center-card-image" height="140" width="90"></img>
+              <img src="./rsc/devices/Fridge.png" class="center-card-image" height="180" width="90"></img>
               <v-card-title primary-title>
                 <div>
-                  <div class="headline">Cuarto de Juan</div>
-                  <span class="grey--text">miau miau</span>
+                  <div class="headline">Heladera de Fede</div>
+                  <span class="grey--text">Tiene queso y dulce ñam ñam</span>
                 </div>
               </v-card-title>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn id="editRoom" fab color="primary" small>
+                <v-btn id="editDevice" fab color="primary" small>
                   <v-icon>edit</v-icon>
                 </v-btn>
-                <v-btn id="favRoom" fab color="red" small>
+                <v-btn id="favDevice" fab color="red" small>
                   <v-icon color="white">favorite</v-icon>
                 </v-btn>
               </v-card-actions>
@@ -93,6 +94,7 @@
           </v-flex>
         </v-layout>
       </v-container>
+
       <v-dialog v-model="dialog" persistent max-width="600px">
         <template v-slot:activator="{ on }">
           <v-btn id="addBtn" fab dark large color="primary" fixed right bottom v-on="on">
@@ -101,21 +103,21 @@
         </template>
         <v-card>
           <v-card-title>
-            <span class="headline">Add a new room*</span>
+            <span class="headline">Add a new device</span>
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12>
-                  <v-text-field label="Room name" required></v-text-field>
+                  <v-text-field label="Device name" required></v-text-field>
                 </v-flex>
                 <v-flex xs12>
-                  <v-text-field label="Room description"></v-text-field>
+                  <v-text-field label="Device description"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-select
-                    :items="['Adult bedroom', 'Baby bedroom','Kid bedroom', 'Bathroom', 'Dining room', 'Garage', 'Garden', 'Kitchen', 'Laundry room', 'Living room', 'Office', 'Study room']"
-                    label="Room type*"
+                    :items="['Air Conditioner', 'Alarm', 'Curtains', 'Door', 'Fridge', 'Light', 'Oven', 'Timer']"
+                    label="Device type*"
                     required
                   ></v-select>
                 </v-flex>
@@ -137,6 +139,11 @@
     
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-  <script src="js/rooms.js"></script>
+  <script src="js/devices.js"></script>
 </body>
 </html>
+
+
+
+
+
