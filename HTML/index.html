@@ -9,16 +9,14 @@
   <div id="app">
     <v-app id="inspire">
     <!-- TOOLBAR/ BARRA DE ARRIBA -->
-     <v-toolbar color="#063869" app
-      :clipped-left="$vuetify.breakpoint.mdAndUp"
-      fixed>
-      <img src="rsc/HAL9000.png" alt="logo" height="50" width="50">
-      <v-toolbar-title class="black--text">HAL9000</v-toolbar-title>
+     <v-toolbar color="primary" app :clipped-left="$vuetify.breakpoint.mdAndUp" fixed>
+      <img src="rsc/HAL9000.png" alt="logo" height="60" width="60">
+      <v-toolbar-title class="white--text">HAL9000</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-text-field class="ml-2" outline="true" loading="true" v-model="search" label="Search..." append-icon="clear" :append-icon-cb="() => (openSearch = !openSearch)"  dark background-color="white" prepend-icon="search" ></v-text-field>
-        <v-btn  fab color="black">
-          <v-icon color="#FFFFFF" size="32">perm_identity</v-icon>
+        <v-text-field prepend-icon="search" v-model="search" label="Search..." hide-details dark single-line></v-text-field>
+        <v-btn fab flat>
+          <v-icon color="#FFFFFF" size="30">perm_identity</v-icon>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -33,7 +31,7 @@
     app
     v-model="drawer"
     >
-      <v-toolbar flat >
+      <v-toolbar flat>
         <v-list>
           <v-list-tile>
             <v-list-tile-title class="title" align-center>
@@ -42,7 +40,7 @@
           </v-list-tile>
         </v-list>
       </v-toolbar>
-    
+      
       <v-divider></v-divider>
     
       <v-list dense class="pt-0">
@@ -70,72 +68,7 @@
             <!-- TODOS LOS CIRCULOS -->
           <v-container grid-list-md text-xs-center align-content-center>
               <v-layout row wrap >
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large slot="activator" color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">home</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large slot="activator" color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">group_work</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large slot="activator" color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">perm_device_information</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large slot="activator" color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">perm_device_information</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">alarm</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large color="purple">
-                          <v-icon dark style="font-size: 64px;" color="black">highlight</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">settings_remote</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex :key="`3${i}`" xs3>
-                  <v-btn fab large color="purple">
-                        <v-icon dark style="font-size: 64px;" color="black">alarm_add</v-icon>
-                  </v-btn>
-                </v-flex>
-                <v-flex >
-                  <div>
-                        <v-layout row justify-center>
-                          <v-dialog v-model="dialog2"  max-width="500px">
-                            <v-card>
-                              <v-card-title>
-                              Welcome!
-                              </v-card-title>
-                              <v-card-text>
-                              Please type your name below
-                              </v-card-text>
-                              <v-card-actions>
-                                <v-text-field
-                                  v-model="message1"
-                                  label="Your Name"
-                                  clearable
-                                  required
-                                ></v-text-field>
-                               
-                                <v-btn color="primary" flat @click="dialog2=false">Confirm</v-btn>
-                              </v-card-actions>
-                            </v-card>
-                          </v-dialog>
-                        </v-layout>
-                      </div>
-                </v-flex>
+
               </v-layout>
             </v-container>
         </v-content>
@@ -143,7 +76,6 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-  <script src="../js/persistent.js"></script>
-
+  <script src="..js/persistent.js"></script>
 </body>
 </html>

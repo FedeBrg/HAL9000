@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <!-- REUSAMOS AL SER EL MISMO CSS -->
+  <link href="css/rooms.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <v-app id="inspire">
+    <!-- TOOLBAR/ BARRA DE ARRIBA -->
+     <v-toolbar color="primary" app
+      :clipped-left="$vuetify.breakpoint.mdAndUp"
+      fixed>
+      <img src="rsc/HAL9000.png" alt="logo" height="50" width="50">
+      <v-toolbar-title class="white--text">HAL9000</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-text-field prepend-icon="search" v-model="search" label="Search..." hide-details dark single-line></v-text-field>
+        <v-btn fab flat>
+          <v-icon color="#FFFFFF" size="30">perm_identity</v-icon>
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-divider></v-divider>
+
+    <!-- LO DE LA IZQUIERDA -->
+    <div>
+    <v-navigation-drawer permanent
+    fixed
+    :clipped="$vuetify.breakpoint.mdAndUp"
+    app
+    v-model="drawer"
+    >
+      <v-toolbar flat >
+        <v-list>
+          <v-list-tile>
+            <v-list-tile-title class="title" align-center>
+              Navigation Bar
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+    
+      <v-divider></v-divider>
+    
+      <v-list dense class="pt-0">
+        <!-- TODOS LOS ITEMS DE LA IZQUIERDA -->
+        
+        <v-list-tile
+          v-for="item in items"
+          :key="item.title"
+          :id="item.id"
+          @click=""
+          align-center
+        >
+          <v-list-tile-action>
+            <v-icon>{{item.icon}}</v-icon>
+          </v-list-tile-action>
+  
+          <v-list-tile-content>
+            <v-list-tile-title>{{item.title}}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    
+    </div>
+    <v-content>
+      <v-container fluid>
+        <v-layout>
+          
+
+
+            <v-card v-for="device in devices" height="300" width="200">
+              <v-flex xs3 mt-1 mr-2>
+              <img :src="device.image" class="center-card-image" height="150" width="200"></img>
+              <v-card-title primary-title>
+                <div>
+                  <div class="headline">{{device.name}}</div>
+                </div>
+              </v-card-title>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn id="editDevice" fab color="primary" small>
+                  <v-icon>edit</v-icon>
+                </v-btn>
+                <v-btn id="favDevice" fab color="red" small>
+                  <v-icon color="white">favorite</v-icon>
+                </v-btn>
+              </v-card-actions>
+              </v-flex>
+            </v-card>
+
+
+          
+        </v-layout>
+      </v-container>
+
+      <v-dialog v-model="dialog" persistent max-width="600px">
+        <template v-slot:activator="{ on }">
+          <v-btn id="addBtn" fab dark large color="primary" fixed right bottom v-on="on">
+            <v-icon dark>add</v-icon>
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>
+            <span class="headline">Add a new device</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container grid-list-md>
+              <v-layout wrap>
+                <v-flex xs12>
+                  <v-text-field id="devName" label="Device name*" required></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <p>Select device type</p>
+                  <select id="devType">
+                    <option v-for="opt in options" :value="opt.value">{{opt.name}}</option>
+                  </select>
+                </v-flex>
+              </v-layout>
+            </v-container>
+            <v-spacer></v-spacer>
+            <small>*indicates required field</small>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
+            <v-btn id="submitBtn"color="blue darken-1" flat @click="dialog = false">Save</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-content>
+  </div>
+  </v-app>
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script src="..js/persistent.js"></script>
+</body>
+</html>
+
+
+
+
+
