@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app id="inspire">
+    <!-- TOOLBAR/ BARRA DE ARRIBA -->
+     <v-toolbar color="#063869" app
+      :clipped-left="$vuetify.breakpoint.mdAndUp"
+      fixed>
+      <img src="rsc/HAL9000.png" alt="logo" height="50" width="50">
+      <v-toolbar-title class="black--text">HAL9000</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-text-field class="ml-2" outline="true" loading="true" v-model="search" label="Search..." append-icon="clear" :append-icon-cb="() => (openSearch = !openSearch)"  dark background-color="white" prepend-icon="search" ></v-text-field>
+        <v-btn  fab color="black">
+          <v-icon color="#FFFFFF" size="32">perm_identity</v-icon>
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-divider></v-divider>
+
+    <!-- LO DE LA IZQUIERDA -->
+    <div>
+    <v-navigation-drawer permanent
+    fixed
+    :clipped="$vuetify.breakpoint.mdAndUp"
+    app
+    v-model="drawer"
+    >
+      <v-toolbar flat >
+        <v-list>
+          <v-list-tile>
+            <v-list-tile-title class="title" align-center>
+              Navigation Bar
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+    
+      <v-divider></v-divider>
+    
+      <v-list dense class="pt-0">
+        <!-- TODOS LOS ITEMS DE LA IZQUIERDA -->
+        
+        <v-list-tile
+          v-for="item in items"
+          :key="item.title"
+          :id="item.id"
+          @click=""
+          align-center
+        >
+          <v-list-tile-action>
+            <v-icon>{{item.icon}}</v-icon>
+          </v-list-tile-action>
+  
+          <v-list-tile-content>
+            <v-list-tile-title>{{item.title}}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    </div>
+    <v-content>
+            <!-- TODOS LOS CIRCULOS -->
+          <v-container grid-list-md text-xs-center align-content-center fill-height>
+              <v-layout row wrap align-center fill-height>
+                <v-flex xs12 sm6 offset-sm3 >
+                  <v-card>
+                    
+
+                    <v-card-title primary-title>
+                      <div>
+                        <h3 class="headline mb-0">Timer</h3>
+                        <div> {{ card_text }} </div>
+                      </div>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-text-field
+                          v-model="message1"
+                          label="Timer Description"
+                          clearable
+                      ></v-text-field>
+                      <v-container>
+                        <v-layout>
+                          <v-flex
+                            xs12
+                            md4
+                          >
+                            <v-text-field
+                              v-model="hours"
+                              :rules="nameRules"
+                              :counter="2"
+                              label="Hours"
+                              required
+                            ></v-text-field>
+
+                          </v-flex>
+                          <v-flex align-self-center><h3 class="headline mb-0">:</h3></v-flex>
+                          <v-flex
+                            xs12
+                            md4
+                          >
+                            <v-text-field
+                              v-model="minutes"
+                              :rules="nameRules"
+                              :counter="2"
+                              label="Minutes"
+                              required
+                            ></v-text-field>
+
+                          </v-flex>
+                          <v-flex align-self-center><h3 class="headline mb-0">:</h3></v-flex>
+                          <v-flex
+                            xs12
+                            md4
+                          >
+                            <v-text-field
+                              v-model="seconds"
+                              :rules="emailRules"
+                              label="Seconds"
+                              :counter="2"
+                              required
+                            ></v-text-field>
+                          </v-flex>
+                        </v-layout>
+                      </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn flat color="orange">Confirm</v-btn>
+                      <v-btn flat color="orange">Cancel</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+        </v-content>
+  </v-app>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script src="../js/persistent.js"></script>
+
+</body>
+</html>
