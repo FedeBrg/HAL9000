@@ -9,7 +9,8 @@ new Vue({
           { title: 'Routines', icon: 'alarm', id: 'routinesNavBar' },
           { title: 'Active devices', icon: 'highlight', id: 'acdevNavBar' },
         ],
-        right: null
+        right: null,
+        dialog: false
         }
       }
     })

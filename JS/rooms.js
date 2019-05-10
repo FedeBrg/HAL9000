@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
     data () {
       return {
+        dialog:false,
         items: [
           { title: 'Home', icon: 'house', id: 'homeNavBar'},
           { title: 'Rooms', icon: 'group_work', id: 'roomsNavBar' },
@@ -10,9 +11,9 @@ new Vue({
           { title: 'Active devices', icon: 'highlight', id: 'acdevNavBar' },
         ],
         right: null
-        }
       }
-    })
+    }
+  })
 
 var home = document.getElementById("homeNavBar");
 home.onclick = function(){
@@ -37,4 +38,9 @@ routines.onclick = function(){
 var actdev = document.getElementById("acdevNavBar");
 actdev.onclick = function(){
   location.replace("active-devices.html");
+}
+
+var addRoom = document.getElementById("addBtn");
+addRoom.onclick = function(){
+  dialog: true;
 }
