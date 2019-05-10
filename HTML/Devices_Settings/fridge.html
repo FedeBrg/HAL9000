@@ -70,41 +70,29 @@
           <v-container grid-list-md text-xs-center align-content-center>
               <v-layout row wrap >
                 <v-flex>
-                  <v-dialog v-model="dialog2" dialog2="true"  max-width="500px">
+                  <v-dialog v-model="dialog2"  max-width="500px">
                     <v-card>
                       <v-card-title>
-                        <h2>Oven(name)</h2>
+                        <h2>Fridge(name)</h2>
                         <v-spacer></v-spacer>
                         <v-btn color="red" color="red" @click="dialog2=false" flat>Cancel</v-btn>
                       </v-card-title>
                       <v-card-text>
-                        <v-btn color="success">ON</v-btn>
-                        <v-btn color="error">OFF</v-btn>
-
-                      <v-switch v-model="switch1"></v-switch>
-                        
                         <div>
-                        <input v-model="Temperature" placeholder="type in a temperature">
+                        <input v-model="Temperature" placeholder="set fridge temp">
+                        <p>Temperature: {{ message }} &degC</p>
+                        </div>
+                        <div>
+                        <input v-model="Temperature" placeholder="set freezer temp">
                         <p>Temperature: {{ message }} &degC</p>
                         </div>
                           <v-container grid-list-md text-xs-start>
                             <v-layout row wrap >
                               <v-select
-                    :items="['Regular', 'Top', 'Bottom']"
-                    label="Heat Source"
-                    required
-                  ></v-select>
-                              <v-select
-                    :items="['Off', 'Saving', 'Full']"
-                    label="Grill Mode"
-                    required
-                  ></v-select> 
-                              <v-select
-                    :items="['Off', 'Saving', 'Regular']"
-                    label="Convection Mode"
-                    required
-                            ></v-select>
-                                
+                                :items="['Regular', 'Party', 'Holidays']"
+                                label="Mode"
+                                required
+                            ></v-select>  
                             </v-layout>
                           </v-container>  
                       </v-card-text>
@@ -127,3 +115,5 @@
   <script src="../..js/persistent.js"></script>
 </body>
 </html>
+
+
